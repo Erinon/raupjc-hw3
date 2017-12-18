@@ -1,0 +1,56 @@
+﻿@model Zad2.Models.TodoViewModels.AddTodoViewModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<style>
+    .input-div-custom {
+        margin-top: 10px;
+    }
+
+    #ret-custom {
+        margin-top: 30px;
+    }
+
+    #submit-custom {
+        margin-top: 15px;
+    }
+
+    .input-custom {
+        width: 50%;
+    }
+
+    h1 {
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+</style>
+
+<title>Add Todo</title>
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="Todo" asp-action="Add" method="post">
+    <div class="input-div-custom">
+        <label for="text">Text:</label>
+        <input class="form-control input-custom" asp-for="Text" type="text" id="name" placeholder="Project, Homework..." />
+        <span class="form-text" asp-validation-for="Text"></span>
+    </div>
+    <div class="input-div-custom">
+        <label for="date">Date due:</label>
+        <input class="form-control input-custom" asp-for="DateDue" type="datetime" id="date" placeholder="DD.MM.YYYY." />
+        <span class="form-text" asp-validation-for="DateDue"></span>
+    </div>
+    <div class="input-div-custom">
+        <label for="labels">Labels:</label>
+        <input class="form-control input-custom" asp-for="Labels" type="text" id="labels" placeholder="Critical, Personal, Work..." />
+        <span class="form-text" asp-validation-for="Labels"></span>
+    </div>
+    <div id="submit-custom">
+        <input type="submit" />
+    </div>
+</form>
+
+<div id="ret-custom">
+    <a asp-action="Index">Return</a>
+</div>

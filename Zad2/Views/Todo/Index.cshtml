@@ -1,0 +1,36 @@
+﻿@model Zad2.Models.TodoViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Todo";
+}
+
+<style>
+    h1 {
+        margin-bottom: 30px;
+        margin-top: 50px;
+    }
+
+    #add {
+        margin-right: 30px;
+    }
+
+    #link-div-custom {
+        margin-bottom: 20px;
+    }
+</style>
+
+<title>Todo</title>
+
+<h1>@ViewData["Title"]</h1>
+
+<div id="link-div-custom">
+    <a id="add" asp-action="Add">Add new todo</a>
+    <a asp-action="Completed">See completed todos</a>
+</div>
+
+<div>
+    @foreach(var todoViewModel in Model.TodoViewModels)
+    {
+        @Html.Partial("_TodoPartial", todoViewModel);
+
+    }
+</div>

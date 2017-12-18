@@ -1,0 +1,32 @@
+﻿@model Zad2.Models.TodoViewModels.TodoViewModel
+@{
+    ViewData["Title"] = "_TodoPartial";
+}
+
+<style>
+    #todo-custom {
+        margin-top: 20px;
+    }
+
+    #remain {
+        color: red;
+    }
+</style>
+
+<div id="todo-custom">
+    
+
+    @if (Model.IsCompleted)
+    {
+        <div><strong>@Model.Text</strong></div>
+        <div>@Model.DateCompleted.Value.ToString("d. MMMM yyyy.")</div>
+        <a asp-controller="Todo" asp-action="MarkAsActive" asp-route-itemId="@Model.Id">Remove from completed</a>
+    }
+    else
+    {
+        <div><strong>@Model.Text</strong><span id="remain"> (in @Model.Remaining() days!)</span></div>
+        <div>@Model.DateDue.Value.ToString("d. MMMM yyyy.")</div>
+        <a asp-controller="Todo" asp-action="MarkAsCompleted" asp-route-itemId="@Model.Id">Mark as completed</a>
+    }
+
+</div>

@@ -1,0 +1,31 @@
+﻿@model Zad2.Models.TodoViewModels.CompletedViewModel
+@{
+    ViewData["Title"] = "Completed";
+}
+
+<style>
+    h1 {
+        margin-bottom: 30px;
+        margin-top: 50px;
+    }
+
+    #link-div-custom {
+        margin-bottom: 20px;
+    }
+</style>
+
+<title>Completed</title>
+
+<h1>@ViewData["Title"]</h1>
+
+<div id="link-div-custom">
+    <a asp-action="Index">See active todos</a>
+</div>
+
+<div>
+    @foreach (var todoViewModel in Model.TodoViewModels)
+    {
+        @Html.Partial("_TodoPartial", todoViewModel);
+
+    }
+</div>
